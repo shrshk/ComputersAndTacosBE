@@ -1,0 +1,5 @@
+domainName: <your_domain>
+stage: dev
+certificateName: <your_certificateName>
+certificateArn: <your_certificateArn>
+hostedZoneId: <your_hostedZoneId>

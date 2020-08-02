@@ -1,0 +1,34 @@
+service: computers-and-tacos-backend
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+plugins:
+  - serverless-domain-manager
+custom:
+  customDomain:
+    domainName: ${file(variables/variables.yaml):domainName}
+    stage: ${file(variables/variables.yaml):stage}
+    basePath: ''
+    certificateName: ${file(variables/variables.yaml):certificateName}
+    certificateArn: ${file(variables/variables.yaml):certificateArn}
+    hostedZoneId: ${file(variables/variables.yaml):hostedZoneId}
+    createRoute53Record: true
+    endpointType: 'regional'
+    securityPolicy: tls_1_2
+    apiType: rest
+
+provider:
+  name: aws
+  runtime: java8
+  stage: ${self:custom.customDomain.stage}
+  
+package:
+  artifact: target/computers-and-tacos-backend.jar
+
+functions:
+  sample:
+    handler: com.sample.Handler
+    events:
+      - http:
+          path: time
+          method: get
