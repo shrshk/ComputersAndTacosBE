@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
-    "serverless-domain-manager": "^4.2.0"
+    "serverless-domain-manager": "^4.2.0",
+    "serverless-offline": "^6.5.0"
   }
 }

@@ -4,7 +4,10 @@ frameworkVersion: ">=1.2.0 <2.0.0"
 
 plugins:
   - serverless-domain-manager
+  - serverless-offline
 custom:
+  serverless-offline:
+    httpPort: 4000
   customDomain:
     domainName: ${file(variables/variables.yaml):domainName}
     stage: ${file(variables/variables.yaml):stage}
@@ -32,3 +35,4 @@ functions:
       - http:
           path: time
           method: get
+          cors: true
