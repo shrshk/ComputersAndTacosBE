@@ -40,7 +40,7 @@ functions:
     handler: com.search.Handler
     events:
       - http:
-          path: /tries/search
+          path: tries/search
           method: post
           cors: true
           environment:
