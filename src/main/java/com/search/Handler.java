@@ -23,6 +23,7 @@ public class Handler implements RequestHandler<Map<String, String>, ApiGatewayRe
 	@Override
 	public ApiGatewayResponse handleRequest(Map<String, String> input, Context context) {
 		LOG.info("received: " + input);
+		LOG.info("env variables" + System.getenv().toString());
 
 		try {
 

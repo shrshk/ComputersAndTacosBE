@@ -55,7 +55,7 @@ public class SearchAutoComplete {
 
 	private TrieNode buildTrieNode() {
 		TrieNode trieNode = new TrieNode();
-		String[] words = getWordDictionary(DICTIONARY_URL);
+		String[] words = getWordDictionary();
 
 		for (String word : words) {
 			if (word.length()>1)
@@ -65,10 +65,10 @@ public class SearchAutoComplete {
 		return trieNode;
 	}
 
-	private String[] getWordDictionary(String dictionaryUrl) {
+	private String[] getWordDictionary() {
 
 		Request request = new Request.Builder()
-				.url(dictionaryUrl)
+				.url(DICTIONARY_URL)
 				.build();
 
 		Response response;
