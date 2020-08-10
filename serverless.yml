@@ -24,7 +24,7 @@ provider:
   name: aws
   runtime: java8
   stage: ${self:custom.customDomain.stage}
-  
+
 package:
   artifact: target/computers-and-tacos-backend.jar
 
@@ -43,5 +43,5 @@ functions:
           path: tries/search
           method: post
           cors: true
-          environment:
-            DICTIONARY_URL: "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt"
+    environment:
+      DICTIONARY_URL: ${file(variables/variables.yaml):DICTIONARY_URL}
