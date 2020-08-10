@@ -29,10 +29,12 @@ public class SearchAutoComplete {
 
 	private void dfs(String prefix, TrieNode node, List<String> result) {
 
-		if (node == null || node.isLeaf()) {
-			result.add(prefix);
+		if (node == null) {
 			return;
 		}
+
+		if (node.isLeaf())
+			result.add(prefix);
 
 		for (char c : node.getChildren().keySet()) {
 			dfs(prefix + c, node.getChildren().get(c), result);
@@ -45,7 +47,7 @@ public class SearchAutoComplete {
 		SearchAutoComplete searchAutoComplete = new SearchAutoComplete();
 		Map<String, List<String>> response = new HashMap<>();
 
-		List<String> inputWordList = Arrays.asList("s", "f");
+		List<String> inputWordList = Arrays.asList("a", "b");
 
 		for (String inputWord : inputWordList) {
 			if (inputWord.isEmpty())
