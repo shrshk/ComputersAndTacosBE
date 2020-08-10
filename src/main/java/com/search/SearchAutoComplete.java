@@ -13,7 +13,7 @@ public class SearchAutoComplete {
 		List<String> result = new ArrayList<>();
 		TrieNode trieNode = new TrieNode(true);
 
-		if (!trieNode.startsWith(word) || trieNode.search(word)) {
+		if (!trieNode.startsWith(word)) {
 			result.add(word);
 			return result;
 		}
@@ -47,7 +47,7 @@ public class SearchAutoComplete {
 		SearchAutoComplete searchAutoComplete = new SearchAutoComplete();
 		Map<String, List<String>> response = new HashMap<>();
 
-		List<String> inputWordList = Arrays.asList("a", "b");
+		List<String> inputWordList = Arrays.asList("ab", "cc", "d");
 
 		for (String inputWord : inputWordList) {
 			if (inputWord.isEmpty())

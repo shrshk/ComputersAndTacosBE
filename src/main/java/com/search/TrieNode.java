@@ -57,8 +57,7 @@ public class TrieNode {
 		String[] words = getWordDictionary();
 
 		for (String word : words) {
-			if (word.length() > 1)
-				trieNode.insert(word);
+			trieNode.insert(word);
 		}
 
 		return gson.toJson(trieNode);
