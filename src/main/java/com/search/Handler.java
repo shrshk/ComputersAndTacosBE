@@ -45,8 +45,13 @@ public class Handler implements RequestHandler<Map<String, Object>, ApiGatewayRe
             }
 
             LOG.info("response " + response.toString());
+            
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Access-Control-Allow-Origin", "*");
+            headers.put("Access-Control-Allow-Methods", "POST, GET, PUT, UPDATE, OPTIONS");
+            headers.put("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With");
 
-            return ApiGatewayResponse.builder().setStatusCode(200).setObjectBody(response).build();
+            return ApiGatewayResponse.builder().setStatusCode(200).setObjectBody(response).setHeaders(headers).build();
         } catch (Exception e) {
             String errorMsg = "Error searching words for given request" + input.toString() + "Error:" + e.getMessage();
             LOG.error(errorMsg);
