@@ -23,7 +23,7 @@ custom:
 provider:
   name: aws
   runtime: java8
-  stage: ${self:custom.customDomain.stage}
+  stage: ${file(variables/variables.yaml):stage}
 
 package:
   artifact: target/computers-and-tacos-backend.jar
