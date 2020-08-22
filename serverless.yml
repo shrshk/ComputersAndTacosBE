@@ -36,3 +36,38 @@ functions:
           path: time
           method: get
           cors: true
+  searchAutoComplete:
+    handler: com.search.Handler
+    events:
+      - http:
+          path: tries/search
+          method: post
+          cors: true
+    environment:
+      DICTIONARY_URL: "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
